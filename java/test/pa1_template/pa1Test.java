@@ -4,8 +4,17 @@
 package pa1_template;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class pa1Test {
-    // Tests here
+
+
+    @Test
+    public void bubbleEmptyTest(){
+        BubbleSort bubble = new BubbleSort();
+        int[] A = new int[0];
+        int[] result = bubble.bubbleSort(A); 
+        System.out.println(result.length);
+        assertTrue(result.length == 0);
+    }
 }
