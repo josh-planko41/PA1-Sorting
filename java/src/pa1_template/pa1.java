@@ -5,8 +5,12 @@ package pa1_template;
 
 public class pa1 {
     BubbleSort bubble;
+    MergeSort merge;
     public static void main(String[] args) {
+        long startTime = System.nanoTime();
         BubbleSort bubble = new BubbleSort();
+        MergeSort merge = new MergeSort();
+        QuickSort quick = new QuickSort();
         SortArgParser parser = new SortArgParser(args);
         int[] ints = parser.getInts();
         String alg = parser.getAlg();
@@ -18,10 +22,23 @@ public class pa1 {
         if (alg.equals("bubble")){
             bubble.bubbleSort(ints);
         }
-        if (ints == null) {return;}
-        for (int j = 0; j < ints.length; j++) {
-            System.out.println(ints[j]);
+        if (alg.equals("merge")){
+            merge.mergeSort(ints, 0, ints.length-1);
         }
-        System.out.println(time);
+        if (alg.equals("lemuto")){
+            quick.lemutoQuickSort(ints, 0, ints.length-1);
+        }
+        if (alg.equals("hoare")){
+            quick.hoareQuickSort(ints, 0, ints.length-1);
+        }
+        long endTime = System.nanoTime();
+        if (ints == null) {return;}
+        if (time) {
+            for (int j = 0; j < ints.length; j++) {
+                System.out.println(ints[j]);
+            }
+        } else {   
+        System.out.println((endTime-startTime) / 100000);
+        }
     }
 }

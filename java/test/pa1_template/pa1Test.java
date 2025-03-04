@@ -76,21 +76,20 @@ class pa1Test {
         assertTrue(result[0] == 4);
     }
 
-    // @Test
-    // public void mergeTest(){
-    //     MergeSort merge = new MergeSort();
-    //     int[] A = new int[2];
-    //     int[] B = new int[2];
-    //     A[0] = 1;
-    //     A[1] = 3;
-    //     B[0] = 2;
-    //     B[1] = 4;
-    //     int[] result = merge.merge(A, B);
-    //     assertTrue(result[0] == 1);
-    //     assertTrue(result[1] == 2);
-    //     assertTrue(result[2] == 3);
-    //     assertTrue(result[3] == 4);
-    // }
+    @Test
+    public void mergeTest(){
+        MergeSort merge = new MergeSort();
+        int[] A = new int[4];
+        A[0] = 1;
+        A[1] = 4;
+        A[2] = -5;
+        A[3] = 10;
+        int[] result = merge.merge(A, 0, 1, 3);
+        assertTrue(result[0] == -5);
+        assertTrue(result[1] == 1);
+        assertTrue(result[2] == 4);
+        assertTrue(result[3] == 10);
+    }
 
     @Test
     public void mergeSortFullTest(){
@@ -106,5 +105,27 @@ class pa1Test {
         assertTrue(result[1] == 1);
         assertTrue(result[2] == 4);
         assertTrue(result[3] == 10);
+    }
+
+    @Test
+    public void quickSortTesting(){
+        QuickSort quick = new QuickSort();
+        int[] A = new int [4];
+        A[0] = 1;
+        A[1] = 4;
+        A[2] = -5;
+        A[3] = 10;
+        int[] lemuto = quick.lemutoQuickSort(A, 0, A.length-1);
+        int[] hoare = quick.hoareQuickSort(A, 0, A.length-1);
+        System.out.println(Arrays.toString(lemuto));
+        System.out.println(Arrays.toString(hoare));
+        assertTrue(lemuto[0] == -5);
+        assertTrue(lemuto[1] == 1);
+        assertTrue(lemuto[2] == 4);
+        assertTrue(lemuto[3] == 10);
+        assertTrue(hoare[0] == -5);
+        assertTrue(hoare[1] == 1);
+        assertTrue(hoare[2] == 4);
+        assertTrue(hoare[3] == 10);
     }
 }
