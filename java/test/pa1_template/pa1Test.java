@@ -6,6 +6,8 @@ package pa1_template;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.Arrays;
+
 class pa1Test {
 
 
@@ -14,7 +16,95 @@ class pa1Test {
         BubbleSort bubble = new BubbleSort();
         int[] A = new int[0];
         int[] result = bubble.bubbleSort(A); 
-        System.out.println(result.length);
         assertTrue(result.length == 0);
+    }
+
+    @Test
+    public void bubbleOneElementTest(){
+        BubbleSort bubble = new BubbleSort();
+        int[] A = new int[1];
+        A[0] = 5;
+        int[] result = bubble.bubbleSort(A);
+        assertTrue(result[0] == 5);
+    }
+
+    @Test
+    public void swapTest(){
+        BubbleSort bubble = new BubbleSort();
+        int[] A = new int[3];
+        for (int i = 1; i<=3; i++){
+            A[i-1] = i;
+        }
+        bubble.swap(A, 0, 2);
+        assertTrue(A[0] == 3);
+        assertTrue(A[1] == 2);
+        assertTrue(A[2] == 1);
+
+    }
+
+    @Test
+    public void bubbleSortTest(){
+        BubbleSort bubble = new BubbleSort();
+        int[] A = new int[4];
+        A[0] = 1;
+        A[1] = 4;
+        A[2] = -5;
+        A[3] = 10;
+        int[] result = bubble.bubbleSort(A);
+        System.out.println(Arrays.toString(result));
+        assertTrue(result[0] == -5);
+        assertTrue(result[1] == 1);
+        assertTrue(result[2] == 4);
+        assertTrue(result[3] == 10);
+    }
+
+    @Test
+    public void mergeSortEmptyTest(){
+        MergeSort merge = new MergeSort();
+        int[] A = new int[0];
+        int[] result = merge.mergeSort(A, 0, A.length-1); 
+        assertTrue(result.length == 0);
+    }
+
+    @Test
+    public void mergeSortOneElementTest(){
+        MergeSort merge = new MergeSort();
+        int[] A = new int[1];
+        A[0] = 4;
+        int[] result = merge.mergeSort(A, 0, A.length-1); 
+        assertTrue(result.length == 1);
+        assertTrue(result[0] == 4);
+    }
+
+    // @Test
+    // public void mergeTest(){
+    //     MergeSort merge = new MergeSort();
+    //     int[] A = new int[2];
+    //     int[] B = new int[2];
+    //     A[0] = 1;
+    //     A[1] = 3;
+    //     B[0] = 2;
+    //     B[1] = 4;
+    //     int[] result = merge.merge(A, B);
+    //     assertTrue(result[0] == 1);
+    //     assertTrue(result[1] == 2);
+    //     assertTrue(result[2] == 3);
+    //     assertTrue(result[3] == 4);
+    // }
+
+    @Test
+    public void mergeSortFullTest(){
+        MergeSort merge = new MergeSort();
+        int[] A = new int[4];
+        A[0] = 1;
+        A[1] = 4;
+        A[2] = -5;
+        A[3] = 10;
+        int[] result = merge.mergeSort(A, 0, A.length-1);
+        System.out.println(Arrays.toString(result));
+        assertTrue(result[0] == -5);
+        assertTrue(result[1] == 1);
+        assertTrue(result[2] == 4);
+        assertTrue(result[3] == 10);
     }
 }

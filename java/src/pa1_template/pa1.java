@@ -4,13 +4,20 @@
 package pa1_template;
 
 public class pa1 {
+    BubbleSort bubble;
     public static void main(String[] args) {
+        BubbleSort bubble = new BubbleSort();
         SortArgParser parser = new SortArgParser(args);
         int[] ints = parser.getInts();
         String alg = parser.getAlg();
         boolean time = parser.getTime();
 
-        System.out.println(alg);
+        
+
+        System.out.println(alg); 
+        if (alg.equals("bubble")){
+            bubble.bubbleSort(ints);
+        }
         if (ints == null) {return;}
         for (int j = 0; j < ints.length; j++) {
             System.out.println(ints[j]);

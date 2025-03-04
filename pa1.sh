@@ -24,10 +24,10 @@
 
 
 # If using python
-python3 python/pa1.py "$@" 
+# python3 python/pa1.py "$@" 
 
 # If using java
-java -cp java/build/classes/java/main/ pa1_template.pa1 "$@"
+java -cp java/bin/main/ pa1_template.pa1 "$@"
 
 # If using c
-c/pa1 "$@"
+# c/pa1 "$@"
